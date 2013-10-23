@@ -1,0 +1,172 @@
+
+         <nfeProc xmlns="http://www.portalfiscal.inf.br/nfe" versao="2.00">
+  <NFe>
+    <infNFe versao="2.00" Id="NFe35120900776574000741550010081079451206865952">
+      <ide>
+        <cUF>35</cUF>
+        <cNF>20686595</cNF>
+        <natOp>Venda de mercadoria B2C</natOp>
+        <indPag>0</indPag>
+        <mod>55</mod>
+        <serie>1</serie>
+        <nNF>8107945</nNF>
+        <dEmi>2012-09-28</dEmi>
+        <dSaiEnt>2012-09-28</dSaiEnt>
+        <hSaiEnt>09:30:01</hSaiEnt>
+        <tpNF>1</tpNF>
+        <cMunFG>3522505</cMunFG>
+        <tpImp>1</tpImp>
+        <tpEmis>1</tpEmis>
+        <cDV>2</cDV>
+        <tpAmb>1</tpAmb>
+        <finNFe>1</finNFe>
+        <procEmi>0</procEmi>
+        <verProc>NeoGrid NFe 1.7.16.1</verProc>
+      </ide>
+      <emit>
+        <CNPJ>00776574000741</CNPJ>
+        <xNome>B2W - Companhia Global do Varejo</xNome>
+        <enderEmit>
+          <xLgr>Estrada dos Alpes, 555</xLgr>
+          <nro>S/N</nro>
+          <xBairro>Itaqui</xBairro>
+          <cMun>3522505</cMun>
+          <xMun>ITAPEVI</xMun>
+          <UF>SP</UF>
+          <CEP>06696150</CEP>
+        </enderEmit>
+        <IE>373117480111</IE>
+        <CRT>3</CRT>
+      </emit>
+      <dest>
+        <CPF>28841085720</CPF>
+        <xNome>JOAO ARAUJO DE SANTANA</xNome>
+        <enderDest>
+          <xLgr>GUARARA</xLgr>
+          <nro>52</nro>
+          <xBairro>POTENGI</xBairro>
+          <cMun>2408102</cMun>
+          <xMun>NATAL</xMun>
+          <UF>RN</UF>
+          <CEP>59124420</CEP>
+          <fone>8436614354</fone>
+        </enderDest>
+        <IE/>
+      </dest>
+      <det nItem="1">
+        <prod>
+          <cProd>359588</cProd>
+          <cEAN>7896347119320</cEAN>
+          <xProd>Aspirador de Po Lite  - 1400W de Potencia, Sem Saco para Po,  Bocais p/ todos os Tipos de Pisos - Electrolux</xProd>
+          <NCM>85081100</NCM>
+          <CFOP>6404</CFOP>
+          <uCom>PC</uCom>
+          <qCom>1</qCom>
+          <vUnCom>199.89</vUnCom>
+          <vProd>199.89</vProd>
+          <cEANTrib>7896347119320</cEANTrib>
+          <uTrib>PC</uTrib>
+          <qTrib>1</qTrib>
+          <vUnTrib>199.89</vUnTrib>
+          <vFrete>23.39</vFrete>
+          <vDesc>19.99</vDesc>
+          <indTot>1</indTot>
+        </prod>
+        <imposto>
+          <ICMS>
+            <ICMS60>
+              <orig>0</orig>
+              <CST>60</CST>
+              <vBCSTRet>0.00</vBCSTRet>
+              <vICMSSTRet>0.00</vICMSSTRet>
+            </ICMS60>
+          </ICMS>
+          <PIS>
+            <PISAliq>
+              <CST>01</CST>
+              <vBC>203.29</vBC>
+              <pPIS>1.65</pPIS>
+              <vPIS>3.35</vPIS>
+            </PISAliq>
+          </PIS>
+          <COFINS>
+            <COFINSAliq>
+              <CST>01</CST>
+              <vBC>203.29</vBC>
+              <pCOFINS>7.60</pCOFINS>
+              <vCOFINS>15.45</vCOFINS>
+            </COFINSAliq>
+          </COFINS>
+        </imposto>
+        <infAdProd>Desconto Incondicional Concedido: R$ 19.99</infAdProd>
+      </det>
+      <total>
+        <ICMSTot>
+          <vBC>0.00</vBC>
+          <vICMS>0.00</vICMS>
+          <vBCST>0.00</vBCST>
+          <vST>0.00</vST>
+          <vProd>199.89</vProd>
+          <vFrete>23.39</vFrete>
+          <vSeg>0.00</vSeg>
+          <vDesc>19.99</vDesc>
+          <vII>0.00</vII>
+          <vIPI>0.00</vIPI>
+          <vPIS>3.35</vPIS>
+          <vCOFINS>15.45</vCOFINS>
+          <vOutro>0.00</vOutro>
+          <vNF>203.29</vNF>
+        </ICMSTot>
+      </total>
+      <transp>
+        <modFrete>1</modFrete>
+      </transp>
+      <infAdic>
+        <infCpl>Nao incidencia de ICMS - Mercadoria com Substituicao Tributaria, conforme Art 310 RICMS- 30 de novembro de 2000 -  - N. Pedido: 03-447225414 N. Entrega: 292881816. -</infCpl>
+        <obsCont xCampo="SiglaERP">
+          <xTexto>ORACLE</xTexto>
+        </obsCont>
+        <obsCont xCampo="Logo">
+          <xTexto>SUBA</xTexto>
+        </obsCont>
+        <obsCont xCampo="NomedaMarca">
+          <xTexto>Submarino.com</xTexto>
+        </obsCont>
+      </infAdic>
+    </infNFe>
+    <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+      <SignedInfo>
+        <CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+        <SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+        <Reference URI="#NFe35120900776574000741550010081079451206865952">
+          <Transforms>
+            <Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+            <Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+          </Transforms>
+          <DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+          <DigestValue>uuYO2HO3vaYzDIhshk49C7SS72A=</DigestValue>
+        </Reference>
+      </SignedInfo>
+      <SignatureValue>S3LO8O6A2JfeQJDqwtPB2e825m9RUz3UOXLiwKu/Z+D5YIyPvPa0lrlFK59xUZCTVx934VHOHHV5AwUnzgsvKW0WJeLapp0KYjdThQ6Jx1Z2zWppUnoIP6UxXaRmGDFRUX399j63linRMwaJAlXjlAfCwXFRNKVbqBYstqoByV49QvPmfTO34LcMPANeeucY6Bh7+S3ryWqNVdd71RCzaDovD3e2B9NNj3S/6hBgD8ueUqggalf7rSBy0cJ/CYDJMXh7WbtYqzRIq3lf7bdcIp8KT/P9wqEAF+l9XJlNnLWhyh0v6L2n/5K3Mc0K1jqUZUZq9MN4gots6TduyYDYKw==</SignatureValue>
+      <KeyInfo>
+        <X509Data>
+          <X509Certificate>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</X509Certificate>
+        </X509Data>
+      </KeyInfo>
+    </Signature>
+  </NFe>
+  <protNFe versao="2.00">
+    <infProt>
+      <tpAmb>1</tpAmb>
+      <verAplic>5.0</verAplic>
+      <chNFe>35120900776574000741550010081079451206865952</chNFe>
+      <dhRecbto>2012-09-28T09:30:21</dhRecbto>
+      <nProt>135120558016110</nProt>
+      <digVal>uuYO2HO3vaYzDIhshk49C7SS72A=</digVal>
+      <cStat>100</cStat>
+      <xMotivo>Autorizado o uso da NF-e</xMotivo>
+    </infProt>
+  </protNFe>
+</nfeProc>
+
+     

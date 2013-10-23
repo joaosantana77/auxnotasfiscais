@@ -1,0 +1,167 @@
+<nfeProc xmlns="http://www.portalfiscal.inf.br/nfe" versao="2.00">
+  <NFe xmlns="http://www.portalfiscal.inf.br/nfe">
+    <infNFe versao="2.00" Id="NFe35130900776574000741550010203262801625770945">
+      <ide>
+        <cUF>35</cUF>
+        <cNF>62577094</cNF>
+        <natOp>Venda de mercadoria adquir. de terceiros</natOp>
+        <indPag>0</indPag>
+        <mod>55</mod>
+        <serie>1</serie>
+        <nNF>20326280</nNF>
+        <dEmi>2013-09-09</dEmi>
+        <dSaiEnt>2013-09-09</dSaiEnt>
+        <hSaiEnt>03:56:49</hSaiEnt>
+        <tpNF>1</tpNF>
+        <cMunFG>3522505</cMunFG>
+        <tpImp>1</tpImp>
+        <tpEmis>1</tpEmis>
+        <cDV>5</cDV>
+        <tpAmb>1</tpAmb>
+        <finNFe>1</finNFe>
+        <procEmi>0</procEmi>
+        <verProc>ELDOC</verProc>
+      </ide>
+      <emit>
+        <CNPJ>00776574000741</CNPJ>
+        <xNome>B2W - Companhia Global do Varejo</xNome>
+        <enderEmit>
+          <xLgr>Estrada dos Alpes, 555</xLgr>
+          <nro>S/N</nro>
+          <xBairro>Itaqui</xBairro>
+          <cMun>3522505</cMun>
+          <xMun>ITAPEVI</xMun>
+          <UF>SP</UF>
+          <CEP>06696150</CEP>
+        </enderEmit>
+        <IE>373117480111</IE>
+        <CRT>3</CRT>
+      </emit>
+      <dest>
+        <CPF>28841085720</CPF>
+        <xNome>JOAO ARAUJO DE SANTANA</xNome>
+        <enderDest>
+          <xLgr>RUA GUARARA</xLgr>
+          <nro>52</nro>
+          <xBairro>POTENGI</xBairro>
+          <cMun>2408102</cMun>
+          <xMun>NATAL</xMun>
+          <UF>RN</UF>
+          <CEP>59124420</CEP>
+        </enderDest>
+        <IE/>
+      </dest>
+      <det nItem="1">
+        <prod>
+          <cProd>111747781</cProd>
+          <cEAN>7898934327651</cEAN>
+          <xProd>Auto Radio Com Porta Usb E Leitor De Cartoes - Naveg</xProd>
+          <NCM>85272190</NCM>
+          <CFOP>6404</CFOP>
+          <uCom>PC</uCom>
+          <qCom>1</qCom>
+          <vUnCom>89.90</vUnCom>
+          <vProd>89.90</vProd>
+          <cEANTrib>7898934327651</cEANTrib>
+          <uTrib>PC</uTrib>
+          <qTrib>1</qTrib>
+          <vUnTrib>89.90</vUnTrib>
+          <vFrete>17.35</vFrete>
+          <vDesc>20.00</vDesc>
+          <indTot>1</indTot>
+        </prod>
+        <imposto>
+          <ICMS>
+            <ICMS60>
+              <orig>0</orig>
+              <CST>60</CST>
+              <vBCSTRet>0.00</vBCSTRet>
+              <vICMSSTRet>0.00</vICMSSTRet>
+            </ICMS60>
+          </ICMS>
+          <PIS>
+            <PISNT>
+              <CST>04</CST>
+            </PISNT>
+          </PIS>
+          <COFINS>
+            <COFINSNT>
+              <CST>04</CST>
+            </COFINSNT>
+          </COFINS>
+        </imposto>
+        <infAdProd>Desconto Incondicional Concedido: R$ 20.00</infAdProd>
+      </det>
+      <total>
+        <ICMSTot>
+          <vBC>0.00</vBC>
+          <vICMS>0.00</vICMS>
+          <vBCST>0.00</vBCST>
+          <vST>0.00</vST>
+          <vProd>89.90</vProd>
+          <vFrete>17.35</vFrete>
+          <vSeg>0.00</vSeg>
+          <vDesc>20.00</vDesc>
+          <vII>0.00</vII>
+          <vIPI>0.00</vIPI>
+          <vPIS>0.00</vPIS>
+          <vCOFINS>0.00</vCOFINS>
+          <vOutro>0.00</vOutro>
+          <vNF>87.25</vNF>
+        </ICMSTot>
+      </total>
+      <transp>
+        <modFrete>1</modFrete>
+        <vol>
+          <qVol>1</qVol>
+          <pesoL>0.650</pesoL>
+          <pesoB>0.800</pesoB>
+        </vol>
+      </transp>
+      <infAdic>
+        <infCpl>Nao incidencia de ICMS - Mercadoria com Substituicao Tributaria, conforme Art 310 RICMS- 30 de novembro de 2000  Impostos Pagos: ICMS: R$ 6,36 (7,29%) ICMS-ST: R$ 8,26 (9,47%);    N. Pedido: 02-547612144 N. Entrega: 328015268.</infCpl>
+        <obsCont xCampo="SiglaERP">
+          <xTexto>ORACLE</xTexto>
+        </obsCont>
+        <obsCont xCampo="Logo">
+          <xTexto>ACOM</xTexto>
+        </obsCont>
+        <obsCont xCampo="NomedaMarca">
+          <xTexto>Americanas.com</xTexto>
+        </obsCont>
+      </infAdic>
+    </infNFe>
+    <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+      <SignedInfo>
+        <CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+        <SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+        <Reference URI="#NFe35130900776574000741550010203262801625770945">
+          <Transforms>
+            <Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+            <Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+          </Transforms>
+          <DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+          <DigestValue>f3pI2N2c6AT586+09qj3InTyei0=</DigestValue>
+        </Reference>
+      </SignedInfo>
+      <SignatureValue>DlKE/LDxZaRmeKqyutcQ57hTtTxK5K2KzfjArrqyMFeKZt5bhKdWRlJ2KJnNSptII/7GGN4yogTXR0IPrelOqLxMATMrkckdLHQ1HP+YsGDr0ubP5Z06zPtp0spmwdPj9elBtOfDb5fLwh+7P1NiG+EvtRq/L3Py7wZF6scjLF6YV4SRIcqZiXCA8MU9cj2mKmuMaOr6AuSMHZm0qSSfk9nVSxYaScs4PcA8IvUZ8zQPWm/Y+Zz9u5536iTuhPC8DXj20IZ3RYXMvFt5NXNHkxdDkQPn3vQQffAXK3bwmoNFg2yI6blx4s7ad/MJg8hdU5FVO82p5hIMfxi3qW9Vjg==</SignatureValue>
+      <KeyInfo>
+        <X509Data>
+          <X509Certificate>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</X509Certificate>
+        </X509Data>
+      </KeyInfo>
+    </Signature>
+  </NFe>
+  <protNFe versao="2.00">
+    <infProt>
+      <tpAmb>1</tpAmb>
+      <verAplic>SP_NFE_PL_006q</verAplic>
+      <chNFe>35130900776574000741550010203262801625770945</chNFe>
+      <dhRecbto>2013-09-09T03:58:01</dhRecbto>
+      <nProt>135130541044173</nProt>
+      <digVal>f3pI2N2c6AT586+09qj3InTyei0=</digVal>
+      <cStat>100</cStat>
+      <xMotivo>Autorizado o uso da NF-e</xMotivo>
+    </infProt>
+  </protNFe>
+</nfeProc>

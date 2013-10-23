@@ -39,10 +39,14 @@ type
     cdsCadClienteIE: TStringField;
     cdsCadClienteIM: TStringField;
     cdsCadClienteNOME: TStringField;
+    CDSMailsDATAHORA: TSQLTimeStampField;
+    CDSMailsDATAHORAEMAIL: TSQLTimeStampField;
+    sp_EMAILSREC_I: TSQLStoredProc;
     procedure cdsCadClienteBeforeDelete(DataSet: TDataSet);
     procedure cdsCadClienteBeforePost(DataSet: TDataSet);
     procedure cdsCadCtEmailBeforeDelete(DataSet: TDataSet);
     procedure cdsCadCtEmailBeforePost(DataSet: TDataSet);
+    procedure CDSMailsBeforePost(DataSet: TDataSet);
   private
     { Private declarations }
   public
@@ -127,6 +131,26 @@ begin
         Params[05].AsInteger  := cdsCadCtEmailPORTA.AsInteger;
         Params[06].AsInteger  := cdsCadCtEmailNOTASQUANTIDADE.AsInteger;
         Params[07].AsString   := cdsCadCtEmailARQDIRETORIOPADRAO.AsString;
+        ExecProc;
+        DM.Comit;
+    end;
+  except
+     DM.Rollback
+  end;
+
+end;
+
+procedure TDM.CDSMailsBeforePost(DataSet: TDataSet);
+begin
+  DM.Start;
+  try
+     with sp_EMAILSREC_I do
+     begin
+        Params[00].AsInteger  := cdsMailsIDMAIL.AsInteger;
+        Params[01].AsDateTime := cdsMailsDATAHORA.AsDateTime;
+        Params[02].AsString   := cdsMailsREMETENTE.AsString;
+        Params[03].AsString   := cdsMailsASSUNTO.AsString;
+        Params[04].AsDateTime := cdsMailsDATAHORAEMAIL.AsDateTime;
         ExecProc;
         DM.Comit;
     end;

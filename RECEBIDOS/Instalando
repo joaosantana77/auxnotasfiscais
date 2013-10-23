@@ -1,0 +1,81 @@
+INSTALANDO RVM UBUNTU
+
+In this article I will explain how you can get RVM (Ruby Version Manager)
+installed on Ubuntu 12.04 Linux. First we have to make sure that we have 
+some dependencies installed, so run the following command to take care of them.
+
+sudo apt-get install build-essential git-core
+
+Now we need to install RVM (Ruby Version Manager) using curl. If you do not
+have curl installed yet on your system, you can issue the following command
+	
+sudo apt-get install curl
+
+To start the RVM installation run the following command
+	
+bash -s stable < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)
+
+Now we need to add a line to our bashrc file so run the following command
+	
+echo '[[ -s "/home/andre/.rvm/scripts/rvm" ]] && source "/home/andre/.rvm/scripts/rvm"' >> ~/.bashrc
+
+Make sure to replace andre with your user name in the above command so that you
+will not have any issues on your system. Now run
+	
+source ~/.bashrc
+
+To test if our installation of RVM was succesfull, we can run a command and check its output.
+	
+type rvm | head -1
+
+If the output of the above command is equivalent to rvm is a function, then we now have a working RVM
+installation. Now our Ruby Version Manager is installed and we can go ahead and install all the Rubies
+we want. To extend this article a little more I will go over how to install an actual Ruby version and
+also a Ruby Gem. So here we go...
+	
+rvm install 1.9.3
+
+The above command will install Ruby version 1.9.3 under your .rvm directory. To make the Ruby the default one we run
+	
+rvm use --default 1.9.3
+
+Now let us install the Ruby Gem Mysql2 which is needed for mostly everything I do. It may be possible
+that we need some dependencies depending on your system. On my Ubuntu 12.04 installation I did not need
+to install the dependencies but have seen it in the wild being asked so this command might save you some headaches...
+	
+sudo apt-get install mysql-client mysql-server libmysql-ruby libmysqlclient-dev
+
+To install the Ruby Gem Mysql2 run the following command in you Ubuntu 12.04 installation
+	
+rvm 1.9.3 do gem install mysql2
+
+If you installed Ruby 1.9.3 then the command to install Mysql2 will be exactly like above. If you used
+a different version of Ruby then make sure you put the version or full Ruby name and replace 1.9.3 above with your needs.
+
+If you need to fall back to your system's Ruby that might have been pre-installed you can use the following command:
+	
+rvm use system
+
+UPDATE
+
+To have your terminal behave properly with Ubuntu 12.04 after you reboot we need to set the
+
+> Run command as login shell
+
+setting. To do that open up a terminal by pressing CTRL+ALT+t. Once your terminal is open,
+right click the terminal, and click on Profiles then Profile Preferences.
+
+Now click on the Title and Command tab. Check Run command as a login shell. Now close the window.
+
+Now we need to do one more thing. Run the following command in the terminal:
+	
+gedit ~/.bash_profile
+
+This will open a text editor where we will add the following two lines:
+
+source ~/.profile
+source ~/.bashrc
+
+The reason this works is because we told the terminal to start as a login shell. 
+This fixes an issue with RVM that happens when the terminal can't recognize RVM.
+

@@ -3,7 +3,9 @@ object DM: TDM
   Height = 332
   Width = 524
   object SDSMails: TSQLDataSet
-    CommandText = 'select IDMAIL,  REMETENTE, ASSUNTO'#13#10' from EMAILSRECEBIDOS'
+    CommandText = 
+      'select IDMAIL,  REMETENTE,  ASSUNTO,  DATAHORA,'#13#10' DATAHORAEMAIL ' +
+      'from EMAILSRECEBIDOS'
     MaxBlobSize = 1
     Params = <>
     SQLConnection = CON_AUXNFE
@@ -19,11 +21,15 @@ object DM: TDM
     Aggregates = <>
     Params = <>
     ProviderName = 'DSPMails'
+    BeforePost = CDSMailsBeforePost
     Left = 208
     Top = 80
     object CDSMailsIDMAIL: TIntegerField
       FieldName = 'IDMAIL'
       Required = True
+    end
+    object CDSMailsDATAHORA: TSQLTimeStampField
+      FieldName = 'DATAHORA'
     end
     object CDSMailsREMETENTE: TStringField
       FieldName = 'REMETENTE'
@@ -32,6 +38,9 @@ object DM: TDM
     object CDSMailsASSUNTO: TStringField
       FieldName = 'ASSUNTO'
       Size = 100
+    end
+    object CDSMailsDATAHORAEMAIL: TSQLTimeStampField
+      FieldName = 'DATAHORAEMAIL'
     end
   end
   object CON_AUXNFE: TSQLConnection
@@ -314,5 +323,43 @@ object DM: TDM
     StoredProcName = 'ADM1_D'
     Left = 360
     Top = 208
+  end
+  object sp_EMAILSREC_I: TSQLStoredProc
+    MaxBlobSize = -1
+    Params = <
+      item
+        DataType = ftInteger
+        Precision = 4
+        Name = 'IDMAIL'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftTimeStamp
+        Precision = 8
+        Name = 'DATAHORA'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Precision = 50
+        Name = 'REMETENTE'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Precision = 100
+        Name = 'ASSUNTO'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftTimeStamp
+        Precision = 8
+        Name = 'DATAHORAEMAIL'
+        ParamType = ptInput
+      end>
+    SQLConnection = CON_AUXNFE
+    StoredProcName = 'EMAILSRECEBIDOS_I'
+    Left = 288
+    Top = 80
   end
 end

@@ -129,15 +129,16 @@ begin
   for i := 1 to ctMsgs do begin
     POP3.Retrieve(i,lMsg);
     DM.CDSMails.Insert;
-    DM.CDSMails.FieldByName('IDMAIL').AsInteger   := i;
-    DM.CDSMails.FieldByName('REMETENTE').AsString := lMsg.From.Name;
-    DM.CDSMails.FieldByName('ASSUNTO').AsString   := lMsg.Subject;
-
+    DM.CDSMails.FieldByName('IDMAIL').AsInteger         := i;
+    DM.CDSMails.FieldByName('REMETENTE').AsString       := lMsg.From.Name;
+    DM.CDSMails.FieldByName('ASSUNTO').AsString         := lMsg.Subject;
+    DM.CDSMails.FieldByName('DATAHORA').AsDateTime      := now();
+    DM.CDSMails.FieldByName('DATAHORAEMAIL').AsDateTime := lMsg.Date;
     for j := 0 to lMsg.MessageParts.Count - 1 do begin
        if (lMsg.MessageParts.Items[j] is TIdAttachmentFile) then
        begin
           anexo := TIdAttachmentFile(lMsg.MessageParts.Items[j]).FileName;
-          TIdAttachmentFile(lMsg.MessageParts.Items[j]).SaveToFile('c:\temp\'+anexo);
+          TIdAttachmentFile(lMsg.MessageParts.Items[j]).SaveToFile(foldertmp+'\'+anexo);
        end;
     end;
     DM.CDSMails.Post;
