@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2013/08/29 09:17:16.000.600,=C:\Users\joao\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2013/09/25 18:43:38.000.446,=C:\Users\joao\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2013/09/25 18:48:09.000.210,C:\Users\joao\Documents\RAD Studio\Projects\Unit1.dfm=D:\DELPHI\EMAILS\SISCLIENTE\uPrincipal.dfm</Transaction>
+    <Transaction>2013/09/25 18:48:09.000.210,C:\Users\joao\Documents\RAD Studio\Projects\Unit1.pas=D:\DELPHI\EMAILS\SISCLIENTE\uPrincipal.pas</Transaction>
+    <Transaction>2013/09/25 18:48:15.000.542,C:\Users\joao\Documents\RAD Studio\Projects\Project1.dproj=D:\DELPHI\EMAILS\SISCLIENTE\SISCLIENTE.dproj</Transaction>
+    <Transaction>2013/09/25 20:50:45.000.143,=D:\DELPHI\EMAILS\SISCLIENTE\Unit1.pas</Transaction>
+    <Transaction>2013/09/25 20:53:38.000.609,D:\DELPHI\EMAILS\SISCLIENTE\Unit1.pas=D:\DELPHI\EMAILS\SISCLIENTE\UDM.pas</Transaction>
+    <Transaction>2013/09/25 20:53:38.000.609,D:\DELPHI\EMAILS\SISCLIENTE\Unit1.dfm=D:\DELPHI\EMAILS\SISCLIENTE\UDM.dfm</Transaction>
+    <Transaction>2013/10/05 18:38:03.000.915,=D:\DELPHI\EMAILS\SISCLIENTE\Unit1.pas</Transaction>
+    <Transaction>2013/10/05 18:39:17.000.725,D:\DELPHI\EMAILS\SISCLIENTE\uPrincipal.dfm=D:\DELPHI\EMAILS\SISCLIENTE\uEmails.dfm</Transaction>
+    <Transaction>2013/10/05 18:39:17.000.725,D:\DELPHI\EMAILS\SISCLIENTE\uPrincipal.pas=D:\DELPHI\EMAILS\SISCLIENTE\uEmails.pas</Transaction>
+    <Transaction>2013/10/05 18:40:02.000.220,D:\DELPHI\EMAILS\SISCLIENTE\Unit1.dfm=D:\DELPHI\EMAILS\SISCLIENTE\uPrincipal.dfm</Transaction>
+    <Transaction>2013/10/05 18:40:02.000.220,D:\DELPHI\EMAILS\SISCLIENTE\Unit1.pas=D:\DELPHI\EMAILS\SISCLIENTE\uPrincipal.pas</Transaction>
+    <Transaction>2013/10/05 20:01:10.000.855,=C:\SISTEMAS\AuxNotasFiscais\FONTES\ufrmCadPadrao.pas</Transaction>
+    <Transaction>2013/10/05 20:03:40.000.310,C:\SISTEMAS\AuxNotasFiscais\FONTES\AuxNotasFiscais.dproj=C:\SISTEMAS\AuxNotasFiscais\FONTES\SISCLIENTE.dproj</Transaction>
+    <Transaction>2013/10/06 08:02:52.000.796,=C:\SISTEMAS\AuxNotasFiscais\FONTES\UABOUT.pas</Transaction>
+    <Transaction>2013/10/06 20:01:10.000.628,=C:\SISTEMAS\AuxNotasFiscais\FONTES\Unit1.pas</Transaction>
+    <Transaction>2013/10/06 20:04:55.000.222,C:\SISTEMAS\AuxNotasFiscais\FONTES\uCadEmpresas.pas=C:\SISTEMAS\AuxNotasFiscais\FONTES\Unit1.pas</Transaction>
+    <Transaction>2013/10/06 20:04:55.000.222,C:\SISTEMAS\AuxNotasFiscais\FONTES\uCadEmpresas.dfm=C:\SISTEMAS\AuxNotasFiscais\FONTES\Unit1.dfm</Transaction>
+    <Transaction>2013/10/07 11:17:53.000.512,=C:\SISTEMAS\AuxNotasFiscais\FONTES\uBackup.pas</Transaction>
+    <Transaction>2013/10/07 12:48:13.000.014,=C:\SISTEMAS\AuxNotasFiscais\FONTES\uGeral.pas</Transaction>
+    <Transaction>2013/10/08 19:42:10.000.030,C:\SISTEMAS\AuxNotasFiscais\FONTES\uCadEmpresas.pas=</Transaction>
+    <Transaction>2013/10/08 19:42:29.000.373,=C:\SISTEMAS\AuxNotasFiscais\FONTES\Unit1.pas</Transaction>
+    <Transaction>2013/10/08 19:43:36.000.727,C:\SISTEMAS\AuxNotasFiscais\FONTES\Unit1.dfm=C:\SISTEMAS\AuxNotasFiscais\FONTES\UCadCliente.dfm</Transaction>
+    <Transaction>2013/10/08 19:43:36.000.727,C:\SISTEMAS\AuxNotasFiscais\FONTES\Unit1.pas=C:\SISTEMAS\AuxNotasFiscais\FONTES\UCadCliente.pas</Transaction>
+    <Transaction>2013/10/08 19:56:39.000.636,C:\SISTEMAS\AuxNotasFiscais\FONTES\UCadCliente.pas=</Transaction>
+    <Transaction>2013/10/08 19:57:47.000.579,=C:\SISTEMAS\AuxNotasFiscais\FONTES\Unit1.pas</Transaction>
+    <Transaction>2013/10/08 19:58:08.000.950,C:\SISTEMAS\AuxNotasFiscais\FONTES\Unit1.pas=C:\SISTEMAS\AuxNotasFiscais\FONTES\UCadCliente.pas</Transaction>
+    <Transaction>2013/10/08 19:58:08.000.951,C:\SISTEMAS\AuxNotasFiscais\FONTES\Unit1.dfm=C:\SISTEMAS\AuxNotasFiscais\FONTES\UCadCliente.dfm</Transaction>
+    <Transaction>2013/10/10 21:02:58.000.127,C:\SISTEMAS\AuxNotasFiscais\FONTES\UCadCliente.pas=</Transaction>
+    <Transaction>2013/10/10 21:03:07.000.903,C:\SISTEMAS\AuxNotasFiscais\FONTES\ufrmCadPadrao.pas=</Transaction>
+    <Transaction>2013/10/12 09:24:08.000.531,=C:\SISTEMAS\AuxNotasFiscais\FONTES\ufrmCadPadrao.pas</Transaction>
+    <Transaction>2013/10/12 09:24:35.000.516,=C:\SISTEMAS\AuxNotasFiscais\FONTES\Unit1.pas</Transaction>
+    <Transaction>2013/10/12 09:25:47.000.481,C:\SISTEMAS\AuxNotasFiscais\FONTES\UCadClientes.dfm=C:\SISTEMAS\AuxNotasFiscais\FONTES\Unit1.dfm</Transaction>
+    <Transaction>2013/10/12 09:25:47.000.481,C:\SISTEMAS\AuxNotasFiscais\FONTES\UCadClientes.pas=C:\SISTEMAS\AuxNotasFiscais\FONTES\Unit1.pas</Transaction>
+    <Transaction>2013/10/12 14:40:52.000.109,=C:\SISTEMAS\AuxNotasFiscais\FONTES\Unit1.pas</Transaction>
+    <Transaction>2013/10/13 08:41:02.000.395,C:\SISTEMAS\AuxNotasFiscais\FONTES\Unit1.dfm=C:\SISTEMAS\AuxNotasFiscais\FONTES\UCadCtEmail.dfm</Transaction>
+    <Transaction>2013/10/13 08:41:02.000.395,C:\SISTEMAS\AuxNotasFiscais\FONTES\Unit1.pas=C:\SISTEMAS\AuxNotasFiscais\FONTES\UCadCtEmail.pas</Transaction>
+  </Transactions>
+</BorlandProject>

@@ -1,0 +1,118 @@
+object F_Principal: TF_Principal
+  Left = 0
+  Top = 0
+  Caption = 'Recep'#231#227'o de Emails'
+  ClientHeight = 391
+  ClientWidth = 738
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Button1: TButton
+    Left = 24
+    Top = 40
+    Width = 113
+    Height = 57
+    Caption = 'Ler email'
+    TabOrder = 0
+    OnClick = Button1Click
+  end
+  object DBGrid1: TDBGrid
+    Left = 22
+    Top = 136
+    Width = 708
+    Height = 230
+    DataSource = DSMails
+    TabOrder = 1
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'Tahoma'
+    TitleFont.Style = []
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'IDMAIL'
+        Width = 49
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'REMETENTE'
+        Width = 156
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'ASSUNTO'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'CORPO'
+        Visible = True
+      end>
+  end
+  object StatusBar1: TStatusBar
+    Left = 0
+    Top = 372
+    Width = 738
+    Height = 19
+    Panels = <
+      item
+        Width = 100
+      end
+      item
+        Width = 150
+      end>
+    ExplicitLeft = 360
+    ExplicitTop = 376
+    ExplicitWidth = 0
+  end
+  object POP3: TIdPOP3
+    AutoLogin = True
+    SASLMechanisms = <>
+    Left = 360
+    Top = 32
+  end
+  object IdMessage1: TIdMessage
+    AttachmentEncoding = 'UUE'
+    BccList = <>
+    CCList = <>
+    Encoding = meDefault
+    FromList = <
+      item
+      end>
+    Recipients = <>
+    ReplyTo = <>
+    ConvertPreamble = True
+    Left = 416
+    Top = 32
+  end
+  object IO_OpenSSL: TIdSSLIOHandlerSocketOpenSSL
+    MaxLineAction = maException
+    Port = 0
+    DefaultPort = 0
+    SSLOptions.Mode = sslmUnassigned
+    SSLOptions.VerifyMode = []
+    SSLOptions.VerifyDepth = 0
+    Left = 496
+    Top = 72
+  end
+  object IdPOP31: TIdPOP3
+    AutoLogin = True
+    SASLMechanisms = <>
+    Left = 424
+    Top = 88
+  end
+  object DSMails: TDataSource
+    DataSet = DM.CDSMails
+    Left = 280
+    Top = 64
+  end
+end

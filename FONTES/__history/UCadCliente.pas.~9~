@@ -1,0 +1,30 @@
+unit UCadCliente;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, ufrmCadPadrao, Data.DB, Vcl.ExtCtrls,
+  Vcl.DBCtrls, Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls, Vcl.Buttons, Vcl.ComCtrls,
+  Vcl.Mask;
+
+type
+  TF_CadCliente = class(TfrmCadastro)
+    Label1: TLabel;
+    DBEdit1: TDBEdit;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  F_CadCliente: TF_CadCliente;
+
+implementation
+
+{$R *.dfm}
+
+uses UDM;
+
+end.

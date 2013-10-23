@@ -1,0 +1,134 @@
+inherited F_CadCLIENTE: TF_CadCLIENTE
+  Caption = 'Cadastro de Empresas'
+  ClientHeight = 435
+  OnCreate = FormCreate
+  ExplicitHeight = 473
+  PixelsPerInch = 96
+  TextHeight = 15
+  object Label1: TLabel [0]
+    Left = 59
+    Top = 51
+    Width = 34
+    Height = 15
+    Caption = 'Ident.:'
+    FocusControl = dbID
+  end
+  object Label2: TLabel [1]
+    Left = 189
+    Top = 51
+    Width = 25
+    Height = 15
+    Caption = 'CNPJ'
+    FocusControl = dbCNPJ
+  end
+  object Label3: TLabel [2]
+    Left = 18
+    Top = 81
+    Width = 80
+    Height = 15
+    Caption = 'Insc. Estadual:'
+    FocusControl = dbIE
+  end
+  object Label4: TLabel [3]
+    Left = 337
+    Top = 80
+    Width = 89
+    Height = 15
+    Caption = 'Insc. Municipal:'
+    FocusControl = dbIM
+  end
+  object Label5: TLabel [4]
+    Left = 25
+    Top = 110
+    Width = 73
+    Height = 15
+    Caption = 'Raz'#227'o Social:'
+    FocusControl = dbNOME
+  end
+  object Label6: TLabel [5]
+    Left = 14
+    Top = 135
+    Width = 84
+    Height = 15
+    Caption = 'Tipo de Cliente:'
+  end
+  inherited StatusBar1: TStatusBar
+    Top = 416
+    ExplicitTop = 416
+  end
+  inherited GroupBox1: TGroupBox
+    Top = 361
+    ExplicitTop = 361
+  end
+  inherited DBGrid1: TDBGrid
+    Top = 168
+    Height = 193
+  end
+  inherited DBNavigator1: TDBNavigator
+    Left = 442
+    Hints.Strings = ()
+    ExplicitLeft = 442
+  end
+  object dbID: TDBEdit [10]
+    Left = 104
+    Top = 48
+    Width = 68
+    Height = 23
+    DataField = 'IDOADM'
+    DataSource = DataSource1
+    Enabled = False
+    TabOrder = 4
+  end
+  object dbCNPJ: TDBEdit [11]
+    Left = 220
+    Top = 48
+    Width = 214
+    Height = 23
+    DataField = 'CNPJ'
+    DataSource = DataSource1
+    TabOrder = 5
+  end
+  object dbIE: TDBEdit [12]
+    Left = 104
+    Top = 77
+    Width = 189
+    Height = 23
+    DataField = 'IE'
+    DataSource = DataSource1
+    TabOrder = 6
+  end
+  object dbIM: TDBEdit [13]
+    Left = 432
+    Top = 77
+    Width = 172
+    Height = 23
+    DataField = 'IM'
+    DataSource = DataSource1
+    TabOrder = 7
+  end
+  object dbNOME: TDBEdit [14]
+    Left = 104
+    Top = 106
+    Width = 513
+    Height = 23
+    DataField = 'NOME'
+    DataSource = DataSource1
+    TabOrder = 8
+  end
+  object dbcbTIPO: TDBComboBox [15]
+    Left = 104
+    Top = 133
+    Width = 145
+    Height = 23
+    DataField = 'TIPOCLIENTE'
+    DataSource = DataSource1
+    Items.Strings = (
+      'Externo'
+      'Interno')
+    TabOrder = 9
+  end
+  inherited DataSource1: TDataSource
+    DataSet = DM.cdsCadCliente
+    Left = 656
+  end
+end

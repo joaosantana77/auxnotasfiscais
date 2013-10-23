@@ -1,0 +1,16 @@
+program SISCLIENTE;
+
+uses
+  Vcl.Forms,
+  uPrincipal in 'uPrincipal.pas' {F_Principal},
+  UDM in 'UDM.pas' {DM: TDataModule};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TF_Principal, F_Principal);
+  Application.CreateForm(TDM, DM);
+  Application.Run;
+end.

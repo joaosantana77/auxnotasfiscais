@@ -1,0 +1,127 @@
+inherited F_CadCliente: TF_CadCliente
+  Caption = 'Cadastro de Clientes'
+  ClientHeight = 440
+  ExplicitWidth = 736
+  ExplicitHeight = 478
+  PixelsPerInch = 96
+  TextHeight = 15
+  object Label1: TLabel [0]
+    Left = 40
+    Top = 64
+    Width = 31
+    Height = 15
+    Caption = 'Ident.'
+    FocusControl = DBEdit1
+  end
+  object Label2: TLabel [1]
+    Left = 296
+    Top = 64
+    Width = 25
+    Height = 15
+    Caption = 'CNPJ'
+    FocusControl = DBEdit2
+  end
+  object Label3: TLabel [2]
+    Left = 40
+    Top = 93
+    Width = 77
+    Height = 15
+    Caption = 'Insc. Estadual'
+    FocusControl = DBEdit3
+  end
+  object Label4: TLabel [3]
+    Left = 314
+    Top = 93
+    Width = 86
+    Height = 15
+    Caption = 'Insc. Municipal'
+    FocusControl = DBEdit4
+  end
+  object Label5: TLabel [4]
+    Left = 40
+    Top = 122
+    Width = 70
+    Height = 15
+    Caption = 'Raz'#227'o Social'
+    FocusControl = DBEdit5
+  end
+  object Label6: TLabel [5]
+    Left = 40
+    Top = 152
+    Width = 50
+    Height = 15
+    Caption = 'Tipo (I/E)'
+    FocusControl = DBEdit6
+  end
+  inherited StatusBar1: TStatusBar
+    Top = 421
+  end
+  inherited GroupBox1: TGroupBox
+    Top = 366
+  end
+  inherited DBGrid1: TDBGrid
+    Top = 192
+    Height = 174
+  end
+  inherited DBNavigator1: TDBNavigator
+    Hints.Strings = ()
+  end
+  object DBEdit1: TDBEdit [10]
+    Left = 123
+    Top = 61
+    Width = 57
+    Height = 23
+    DataField = 'IDOADM'
+    DataSource = DataSource1
+    TabOrder = 4
+  end
+  object DBEdit2: TDBEdit [11]
+    Left = 336
+    Top = 61
+    Width = 214
+    Height = 23
+    DataField = 'CNPJ'
+    DataSource = DataSource1
+    TabOrder = 5
+  end
+  object DBEdit3: TDBEdit [12]
+    Left = 123
+    Top = 90
+    Width = 185
+    Height = 23
+    DataField = 'IE'
+    DataSource = DataSource1
+    TabOrder = 6
+  end
+  object DBEdit4: TDBEdit [13]
+    Left = 406
+    Top = 90
+    Width = 249
+    Height = 23
+    DataField = 'IM'
+    DataSource = DataSource1
+    TabOrder = 7
+  end
+  object DBEdit5: TDBEdit [14]
+    Left = 123
+    Top = 119
+    Width = 533
+    Height = 23
+    DataField = 'NOME'
+    DataSource = DataSource1
+    TabOrder = 8
+  end
+  object DBEdit6: TDBEdit [15]
+    Left = 123
+    Top = 149
+    Width = 19
+    Height = 23
+    DataField = 'TIPOCLIENTE'
+    DataSource = DataSource1
+    TabOrder = 9
+  end
+  inherited DataSource1: TDataSource
+    Left = 632
+    Top = 48
+  end
+end

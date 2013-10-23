@@ -1,0 +1,129 @@
+unit uEmails;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, IdBaseComponent,
+  IdComponent, IdTCPConnection, IdTCPClient, IdExplicitTLSClientServerBase,
+  IdMessageClient, IdPOP3, IdMessage, IdSSLOpenSSL, IdIOHandler,
+  IdIOHandlerSocket, IdIOHandlerStack, IdSSL, Data.DB, Datasnap.DBClient,
+  Vcl.Grids, Vcl.DBGrids, Vcl.ComCtrls, IdAttachmentFile;
+
+type
+  TF_Emails = class(TForm)
+    POP3: TIdPOP3;
+    Button1: TButton;
+    Msg: TIdMessage;
+    IO_OpenSSL: TIdSSLIOHandlerSocketOpenSSL;
+    IdPOP31: TIdPOP3;
+    DBGrid1: TDBGrid;
+    StatusBar1: TStatusBar;
+    DSMails: TDataSource;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    edHost: TEdit;
+    edUserName: TEdit;
+    edPassword: TEdit;
+    edPort: TEdit;
+    procedure Button1Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  F_Emails: TF_Emails;
+
+implementation
+
+{$R *.dfm}
+
+uses UDM;
+
+procedure TF_Emails.Button1Click(Sender: TObject);
+Var
+  lMsg: TIdMessage;
+  i, j: Integer;
+  ctMsgs, FMailBoxSize: Integer;
+begin
+  //Configurações
+  //TIdPOP3
+  with POP3 do begin
+    IOHandler := IO_OpenSSL;
+    AutoLogin := True;
+    Host      := edhost.Text;
+    Username  := edUsername.Text;
+    UseTLS    := utUseImplicitTLS;
+    Password  := edPassword.Text;
+    Port      := StrToInt(edPort.Text);
+{
+    Host := 'pop.gmail.com';
+    Username := 'joaomlm77@gmail.com';
+    UseTLS := utUseImplicitTLS;
+    Password := 'Arau1951SAJ';
+    Port := 995; }
+
+  end;
+
+  //TIdSSLIOHandlerSocketOpenSSL
+  with IO_OpenSSL do begin
+    Destination := 'pop.gmail.com:995';
+    Host := 'pop.gmail.com';
+    Port := 995;
+    SSLOptions.Method := sslvSSLv23;
+    SSLOptions.Mode := sslmClient;
+  end;
+
+  //Conectando
+  if not POP3.Connected then
+    POP3.Connect;
+
+  //testa a conexão
+  if not POP3.Connected then
+  Begin
+    ShowMessage('Conexão não realizada!');
+    Exit;
+  End;
+
+  //Pega a qtd de msg que há na caixa de entrada
+  ctMsgs := POP3.CheckMessages;
+  FMailBoxSize := POP3.RetrieveMailBoxSize div 1024;
+
+  Statusbar1.Panels[0].text := IntToStr(ctMsgs);
+  Statusbar1.Panels[1].text := format('Mail ocupa %dK no servidor', [FMailBoxSize]);
+  StatusBar1.Refresh;
+  lMsg := TIdMessage.Create;
+  DSMails.DataSet.Open;
+  //Preenchendo o DataSet
+  for i := 1 to ctMsgs do begin
+    POP3.Retrieve(i,lMsg);
+    DM.CDSMails.Insert;
+    DM.CDSMails.FieldByName('IDMAIL').AsInteger   := i;
+    DM.CDSMails.FieldByName('REMETENTE').AsString := lMsg.From.Name;
+    DM.CDSMails.FieldByName('ASSUNTO').AsString   := lMsg.Subject;
+    DM.CDSMails.Post;
+  end;
+
+  lMsg.Free;
+  POP3.Disconnect;
+end;
+
+
+procedure TF_Emails.FormShow(Sender: TObject);
+begin
+  DM.TblPerfil.Open;
+  edhost.Text      := DM.TblPerfilHOST.AsString;
+  edUsername.Text  := DM.TblPerfilUSERNAME.AsString;
+  edPassword.Text  := DM.TblPerfilPASSWORD.AsString;
+  edPort.Text      := IntToStr(DM.TblPerfilPORT.AsInteger);
+  DM.TblPerfil.Close;
+end; (*  *)
+
+end.                                         ;
+

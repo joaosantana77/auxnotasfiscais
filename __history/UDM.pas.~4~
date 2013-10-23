@@ -1,0 +1,41 @@
+unit UDM;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, Data.DBXFirebird, Data.DB, Data.SqlExpr,
+  Data.FMTBcd, Datasnap.DBClient, Datasnap.Provider;
+
+type
+  TDM = class(TDataModule)
+    CON_CLIENTEMAILS: TSQLConnection;
+    SDSMails: TSQLDataSet;
+    DSPMails: TDataSetProvider;
+    CDSMails: TClientDataSet;
+    CDSMailsIDMAIL: TIntegerField;
+    CDSMailsREMETENTE: TStringField;
+    CDSMailsASSUNTO: TStringField;
+    CDSMailsCORPO: TStringField;
+    TblPerfil: TSQLTable;
+    TblPerfilIDPERFIL: TIntegerField;
+    TblPerfilHOST: TStringField;
+    TblPerfilUSERNAME: TStringField;
+    TblPerfilPASSWORD: TStringField;
+    TblPerfilPORT: TIntegerField;
+    TblPerfilDATACADASTRO: TDateField;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  DM: TDM;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+{$R *.dfm}
+
+end.

@@ -1,0 +1,331 @@
+object DM: TDM
+  OldCreateOrder = False
+  Height = 332
+  Width = 524
+  object SDSMails: TSQLDataSet
+    CommandText = 'select IDMAIL,  REMETENTE, ASSUNTO'#13#10' from EMAILSRECEBIDOS'
+    MaxBlobSize = 1
+    Params = <>
+    Left = 48
+    Top = 80
+  end
+  object DSPMails: TDataSetProvider
+    DataSet = SDSMails
+    Left = 120
+    Top = 80
+  end
+  object CDSMails: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'DSPMails'
+    Left = 208
+    Top = 80
+    object CDSMailsIDMAIL: TIntegerField
+      FieldName = 'IDMAIL'
+      Required = True
+    end
+    object CDSMailsREMETENTE: TStringField
+      FieldName = 'REMETENTE'
+      Size = 50
+    end
+    object CDSMailsASSUNTO: TStringField
+      FieldName = 'ASSUNTO'
+      Size = 100
+    end
+  end
+  object CON_AUXNFE: TSQLConnection
+    ConnectionName = 'CON_AUXNFE'
+    DriverName = 'Firebird'
+    LoginPrompt = False
+    Params.Strings = (
+      'DriverName=Firebird'
+      'DriverUnit=Data.DBXFirebird'
+      
+        'DriverPackageLoader=TDBXDynalinkDriverLoader,DbxCommonDriver170.' +
+        'bpl'
+      
+        'DriverAssemblyLoader=Borland.Data.TDBXDynalinkDriverLoader,Borla' +
+        'nd.Data.DbxCommonDriver,Version=17.0.0.0,Culture=neutral,PublicK' +
+        'eyToken=91d62ebb5b0d1b1b'
+      
+        'MetaDataPackageLoader=TDBXFirebirdMetaDataCommandFactory,DbxFire' +
+        'birdDriver170.bpl'
+      
+        'MetaDataAssemblyLoader=Borland.Data.TDBXFirebirdMetaDataCommandF' +
+        'actory,Borland.Data.DbxFirebirdDriver,Version=17.0.0.0,Culture=n' +
+        'eutral,PublicKeyToken=91d62ebb5b0d1b1b'
+      'LibraryName=dbxfb.dll'
+      'LibraryNameOsx=libsqlfb.dylib'
+      'VendorLib=fbclient.dll'
+      'VendorLibWin64=fbclient.dll'
+      'VendorLibOsx=/Library/Frameworks/Firebird.framework/Firebird'
+      'Database=C:\SISTEMAS\AuxNotasFiscais\DADOS\AUXNFE.FDB'
+      'User_Name=sysdba'
+      'Password=masterkey'
+      'Role=RoleName'
+      'MaxBlobSize=-1'
+      'LocaleCode=0000'
+      'IsolationLevel=ReadCommitted'
+      'SQLDialect=3'
+      'CommitRetain=False'
+      'WaitOnLocks=True'
+      'TrimChar=False'
+      'BlobSize=-1'
+      'ErrorResourceFile='
+      'RoleName=RoleName'
+      'ServerCharSet='
+      'Trim Char=False')
+    Connected = True
+    Left = 48
+    Top = 29
+  end
+  object sp_OADM_IU: TSQLStoredProc
+    MaxBlobSize = -1
+    Params = <
+      item
+        DataType = ftInteger
+        Precision = 4
+        Name = 'IDADM1'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Precision = 4
+        Name = 'IDOADM'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Precision = 50
+        Name = 'POP3'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Precision = 100
+        Name = 'USUARIONOME'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Precision = 50
+        Name = 'USUARIOSENHA'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftSmallint
+        Precision = 2
+        Name = 'PORTA'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Precision = 4
+        Name = 'NOTASQUANTIDADE'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Precision = 100
+        Name = 'ARQDIRETORIOPADRAO'
+        ParamType = ptInput
+      end>
+    SQLConnection = CON_AUXNFE
+    StoredProcName = 'ADM1_IU'
+    Left = 288
+    Top = 152
+  end
+  object sp_OADM_D: TSQLStoredProc
+    MaxBlobSize = -1
+    Params = <
+      item
+        DataType = ftInteger
+        Precision = 4
+        Name = 'IDADM1'
+        ParamType = ptInput
+      end>
+    SQLConnection = CON_AUXNFE
+    StoredProcName = 'ADM1_D'
+    Left = 360
+    Top = 152
+  end
+  object sdsCadCliente: TSQLDataSet
+    CommandText = 'select IDOADM, NOME, TIPOCLIENTE, CNPJ,'#13#10'IE, IM from OADM'
+    MaxBlobSize = -1
+    Params = <>
+    SQLConnection = CON_AUXNFE
+    Left = 48
+    Top = 152
+  end
+  object dspCadCliente: TDataSetProvider
+    DataSet = sdsCadCliente
+    Left = 120
+    Top = 152
+  end
+  object cdsCadCliente: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspCadCliente'
+    BeforePost = cdsCadClienteBeforePost
+    BeforeDelete = cdsCadClienteBeforeDelete
+    Left = 208
+    Top = 152
+    object cdsCadClienteIDOADM: TIntegerField
+      DisplayLabel = 'Ident.'
+      FieldName = 'IDOADM'
+      Required = True
+    end
+    object cdsCadClienteNOME: TStringField
+      DisplayLabel = 'Raz'#227'o Social'
+      FieldName = 'NOME'
+      Size = 100
+    end
+    object cdsCadClienteTIPOCLIENTE: TStringField
+      DisplayLabel = 'Tipo'
+      FieldName = 'TIPOCLIENTE'
+      FixedChar = True
+      Size = 1
+    end
+    object cdsCadClienteCNPJ: TStringField
+      FieldName = 'CNPJ'
+      FixedChar = True
+      Size = 14
+    end
+    object cdsCadClienteIE: TStringField
+      FieldName = 'IE'
+      Size = 30
+    end
+    object cdsCadClienteIM: TStringField
+      FieldName = 'IM'
+      Size = 30
+    end
+  end
+  object sdsCadCtEmail: TSQLDataSet
+    CommandText = 'select *  from ADM1'
+    MaxBlobSize = -1
+    Params = <>
+    SQLConnection = CON_AUXNFE
+    Left = 48
+    Top = 208
+  end
+  object dspCadCtEmail: TDataSetProvider
+    DataSet = sdsCadCtEmail
+    Left = 128
+    Top = 208
+  end
+  object cdsCadCtEmail: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspCadCtEmail'
+    BeforePost = cdsCadCtEmailBeforePost
+    BeforeDelete = cdsCadCtEmailBeforeDelete
+    Left = 208
+    Top = 208
+    object cdsCadCtEmailIDADM1: TIntegerField
+      DisplayLabel = 'Id'
+      FieldName = 'IDADM1'
+      Required = True
+    end
+    object cdsCadCtEmailIDOADM: TIntegerField
+      DisplayLabel = 'IdCliente'
+      FieldName = 'IDOADM'
+      Required = True
+    end
+    object cdsCadCtEmailPOP3: TStringField
+      FieldName = 'POP3'
+      Size = 50
+    end
+    object cdsCadCtEmailUSUARIONOME: TStringField
+      DisplayLabel = 'Nome Usuario'
+      FieldName = 'USUARIONOME'
+      Size = 100
+    end
+    object cdsCadCtEmailUSUARIOSENHA: TStringField
+      DisplayLabel = 'Senha Usu'#225'rio'
+      FieldName = 'USUARIOSENHA'
+      Size = 50
+    end
+    object cdsCadCtEmailPORTA: TSmallintField
+      FieldName = 'PORTA'
+    end
+    object cdsCadCtEmailNOTASQUANTIDADE: TIntegerField
+      DisplayLabel = 'Quant. Notas'
+      FieldName = 'NOTASQUANTIDADE'
+    end
+    object cdsCadCtEmailARQDIRETORIOPADRAO: TStringField
+      DisplayLabel = 'Diretorio Padr'#227'o'
+      FieldName = 'ARQDIRETORIOPADRAO'
+      Size = 100
+    end
+  end
+  object sp_ADM1_IU: TSQLStoredProc
+    MaxBlobSize = -1
+    Params = <
+      item
+        DataType = ftInteger
+        Precision = 4
+        Name = 'IDADM1'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Precision = 4
+        Name = 'IDOADM'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Precision = 50
+        Name = 'POP3'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Precision = 100
+        Name = 'USUARIONOME'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Precision = 50
+        Name = 'USUARIOSENHA'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftSmallint
+        Precision = 2
+        Name = 'PORTA'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Precision = 4
+        Name = 'NOTASQUANTIDADE'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Precision = 100
+        Name = 'ARQDIRETORIOPADRAO'
+        ParamType = ptInput
+      end>
+    SQLConnection = CON_AUXNFE
+    StoredProcName = 'ADM1_IU'
+    Left = 288
+    Top = 208
+  end
+  object sp_ADM1_D: TSQLStoredProc
+    MaxBlobSize = -1
+    Params = <
+      item
+        DataType = ftInteger
+        Precision = 4
+        Name = 'IDADM1'
+        ParamType = ptInput
+      end>
+    SQLConnection = CON_AUXNFE
+    StoredProcName = 'ADM1_D'
+    Left = 360
+    Top = 208
+  end
+end

@@ -1,0 +1,30 @@
+inherited F_CadCliente: TF_CadCliente
+  Caption = 'Cadastro de Clientes'
+  ExplicitWidth = 736
+  ExplicitHeight = 437
+  PixelsPerInch = 96
+  TextHeight = 15
+  object Label1: TLabel [0]
+    Left = 64
+    Top = 16
+    Width = 31
+    Height = 15
+    Caption = 'Ident.'
+    FocusControl = DBEdit1
+  end
+  inherited DBNavigator1: TDBNavigator
+    Hints.Strings = ()
+  end
+  object DBEdit1: TDBEdit [5]
+    Left = 64
+    Top = 32
+    Width = 154
+    Height = 23
+    DataField = 'IDOADM'
+    DataSource = DataSource1
+    TabOrder = 4
+  end
+  inherited DataSource1: TDataSource
+    DataSet = DM.cdsCadCliente
+  end
+end

@@ -1,0 +1,57 @@
+unit UCadClientes;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, ufrmCadPadrao, Data.DB, Vcl.ExtCtrls,
+  Vcl.DBCtrls, Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls, Vcl.Buttons, Vcl.ComCtrls,
+  Vcl.Mask, SQLExpr;
+
+type
+  TF_CadClientes = class(TfrmCadastro)
+    procedure btnNovoClick(Sender: TObject);
+    procedure btnGravarClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  F_CadClientes: TF_CadClientes;
+
+implementation
+
+{$R *.dfm}
+
+uses UDM;
+
+procedure TF_CadClientes.btnGravarClick(Sender: TObject);
+begin
+//  DM.cdsCadClienteTIPOCLIENTE.AsString := dbTipo.Text;
+  inherited;
+
+end;
+
+procedure TF_CadClientes.btnNovoClick(Sender: TObject);
+var Qry: TSQLQuery;
+begin
+  inherited;
+  Qry := TSQLQuery.Create(nil);  //cria uma instancia do
+  try
+     Qry.SQLConnection := DM.CON_AUXNFE;  //o seu componente de conexão com o banco
+     Qry.SQL.Text := 'select max(IDOADM) from OADM';
+     Qry.Open;
+     if not QRY.Fields[0].IsNull then   //se nao estiver vazia a tabela retornará nulo
+//        dbID.Text := IntToStr(QRY.Fields[0].AsInteger + 1)
+     else
+//        dbID.Text := '1';
+  finally
+     FreeAndNil(QRY);    //libera o objeto da memória
+  end;
+//  dbCNPJ.SetFocus;
+
+end;
+
+end.

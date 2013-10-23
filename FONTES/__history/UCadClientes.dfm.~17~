@@ -1,0 +1,25 @@
+inherited F_CadClientes: TF_CadClientes
+  Caption = 'Cadastro de Clientes'
+  ClientHeight = 466
+  ExplicitHeight = 504
+  PixelsPerInch = 96
+  TextHeight = 15
+  inherited StatusBar1: TStatusBar
+    Top = 447
+    ExplicitTop = 447
+  end
+  inherited GroupBox1: TGroupBox
+    Top = 392
+    ExplicitTop = 392
+  end
+  inherited DBGrid1: TDBGrid
+    Top = 208
+    Height = 184
+  end
+  inherited DBNavigator1: TDBNavigator
+    Hints.Strings = ()
+  end
+  inherited DataSource1: TDataSource
+    DataSet = DM.cdsCadCliente
+  end
+end

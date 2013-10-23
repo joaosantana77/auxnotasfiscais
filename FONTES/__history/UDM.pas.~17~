@@ -1,0 +1,111 @@
+unit UDM;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, Data.DBXFirebird, Data.DB, Data.SqlExpr,
+  Data.FMTBcd, Datasnap.DBClient, Datasnap.Provider;
+
+type
+  TDM = class(TDataModule)
+    SDSMails: TSQLDataSet;
+    DSPMails: TDataSetProvider;
+    CDSMails: TClientDataSet;
+    CDSMailsIDMAIL: TIntegerField;
+    CDSMailsREMETENTE: TStringField;
+    CDSMailsASSUNTO: TStringField;
+    CON_AUXNFE: TSQLConnection;
+    sp_OADM_IU: TSQLStoredProc;
+    sp_OADM_D: TSQLStoredProc;
+    sdsCadCliente: TSQLDataSet;
+    dspCadCliente: TDataSetProvider;
+    cdsCadCliente: TClientDataSet;
+    cdsCadClienteIDOADM: TIntegerField;
+    cdsCadClienteCNPJ: TStringField;
+    cdsCadClienteIE: TStringField;
+    cdsCadClienteIM: TStringField;
+    cdsCadClienteNOME: TStringField;
+    cdsCadClienteTIPOCLIENTE: TStringField;
+    sdsCadCtEmail: TSQLDataSet;
+    dspCadCtEmail: TDataSetProvider;
+    cdsCadCtEmail: TClientDataSet;
+    cdsCadCtEmailIDADM1: TIntegerField;
+    cdsCadCtEmailIDOADM: TIntegerField;
+    cdsCadCtEmailPOP3: TStringField;
+    cdsCadCtEmailUSUARIONOME: TStringField;
+    cdsCadCtEmailUSUARIOSENHA: TStringField;
+    cdsCadCtEmailPORTA: TSmallintField;
+    cdsCadCtEmailNOTASQUANTIDADE: TIntegerField;
+    cdsCadCtEmailARQDIRETORIOPADRAO: TStringField;
+    procedure cdsCadClienteBeforeDelete(DataSet: TDataSet);
+    procedure cdsCadClienteBeforePost(DataSet: TDataSet);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    Transc: TTransactionDesc;
+    procedure Start;
+    procedure Comit;
+    procedure Rollback;
+  end;
+
+var
+  DM: TDM;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+{$R *.dfm}
+
+uses uGeral;
+
+procedure TDM.Start;
+begin
+  Transc.IsolationLevel := xilREADCOMMITTED;
+  Transc.TransactionID := StrToInt(IdTransaction);
+  CON_AUXNFE.StartTransaction(Transc);
+end;
+
+procedure TDM.cdsCadClienteBeforeDelete(DataSet: TDataSet);
+begin
+  with sp_OADM_D do
+  begin
+     Params[0].AsInteger := cdsCadClienteIDOADM.AsInteger;
+     ExecProc;
+  end;
+
+end;
+
+procedure TDM.cdsCadClienteBeforePost(DataSet: TDataSet);
+begin
+  DM.Start;
+  try
+     with sp_OADM_IU do
+     begin
+        Params[00].AsInteger  := cdsCadClienteIDOADM.AsInteger;
+        Params[01].AsString   := cdsCadClienteIE.AsString;
+        Params[02].AsString   := cdsCadClienteIM.AsString;
+        Params[03].AsString   := cdsCadClienteNOME.AsString;
+        Params[04].AsString   := cdsCadClienteTIPOCLIENTE.AsString;
+        ExecProc;
+        DM.Comit;
+    end;
+  except
+     DM.Rollback
+  end;
+
+end;
+
+procedure TDM.Comit;
+begin
+  CON_AUXNFE.Commit(Transc);
+end;
+
+procedure TDM.Rollback;
+begin
+  CON_AUXNFE.Rollback(Transc);
+  raise Exception.Create(MSG_ERRO);
+end;
+
+end.

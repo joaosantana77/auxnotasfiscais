@@ -1,0 +1,41 @@
+Estou montando uma estrutura de dados para a gente ir atualizando e definindo um padrão de nomenclatura para ir implantando no sistema. Mas a princípio segue algumas dicas e necessidades que estou identificando. Não estou listando todas as tabelas e nem todos os campos que estou pensando, somente os básicos para depois, como falei acima a gente ir melhorando. Se der e for viável, já pode ir implantando, mas a prioridade é fazer o básico e paralelamente ir analisando esses requisitos.
+
+Tabelas e campos
+OADM (Tabela de administração do sistema): essa tabela conterá as informações do cliente do escritório de contabilidade, ou seja, onde o sistema vai estar instalado;
+OADM.Codigo: Código de identificação da empresa (PK); 
+OADM.CNPJ: CNPJ da empresa usuária do sistema (PK);
+OADM.IE: Inscrição estadual;
+OADM.IM: Inscrição municipal;
+OADM.Nome: Razão social da empresa;
+OADM.TipoCliente: Identifica se é um cliente EMPRESA ou ESCRITÓRIO DE CONTABILIDADE. Esse campo permitirá que o sistema trate os e-mails de forma diferente se for uma empresa que recebe os XML de seus fornecedores ou um escritório de contabilidade que recebe os XML de seus clientes, inclusive com relação a estrutura dos diretórios para salvar os arquivos;
+
+ADM1 (Tabela filha da OADM): essa tabela seria a de perfil do cliente que você criou, contendo as parametrizações de uso do sistema, como por exemplo, pop3, usuário, senha, quantidade de notas que poderiam ser baixadas, entre outras que veremos depois;
+ADM1.Codigo: Referência a tabela OADM (FK);
+ADM1.Pop3: POP3;
+ADM1.UsuarioNome: Nome do usuário do e-mail;
+ADM1.UsuarioSenha: Senha do usuário do e-mail;
+ADM1.NotasQuantidade: Quantidade de notas contratadas;
+ADM1.ArquivoDiretorioPadrao
+
+ADM2 (Tabela filha da OADM): essa tabela conterá as informações do escritório de contabilidade do cliente, podendo esse escritório ser nosso cliente ou não, e para onde os XML´s deverão ser enviados após a validação pelo OUTRO sistema a ser desenvolvido;
+ADM2.Codigo: Referência a tabela OADM (FK);
+ADM2.CNPJ: CNPJ do escritório de contabilidade (PK);
+ADM2.IE: Inscrição estadual;
+ADM2.IM: Inscrição municipal;
+ADM2.Nome: Razão social da empresa;
+ADM2.Email: E-mail do escritório de contabilidade para onde serão enviados os XML´s compactados;
+
+OPCH (Creio que essa seria a tabela referente a que você criou para gravar os e-mails baixados): essa tabela registrará as informações dos XML baixados, permitindo inclusive que não seja importado arquivos em duplicidade;
+OPCH.DocCodigo: Número automático;
+OPCH.XmlChave: Chave do XML;
+OPCH.XmlCNPJCPF: Campo CNPJ ou CPF do emissor;
+OPCH.XmlNome: Campo Nome do emissor;
+OPCH.XmlNumeroNota: Campo Número da nota do emissor;
+OPCH.XmlArquivo: Localização do arquivo no disco;
+OPCH.XmlValidado: S ou N para identificar se o XML é válido;
+OPCH.XmlEnvioOK: S ou N para identificar se o XML foi enviado para o escritório de contabilidade, por exemplo;
+
+
+PCH1, PCH2, ...: tabelas relacionadas a OPCH que poderemos utilizar para melhorar o sistema posteriormente. Essas tabelas seriam usadas pelo segundo programa que vai tratar os XML, validando se ainda estão autorizados, etc, para empacotar (zipar) esses XML´s e enviar para o escritório de contabilidade.
+
+Bem, creio que por enquanto é isso! Bom trabalho.
